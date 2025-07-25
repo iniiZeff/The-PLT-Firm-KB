@@ -1,39 +1,28 @@
-# 📘 The PLT Firm – SOP Knowledge Base
 
-A modern, searchable, and responsive Standard Operating Procedures (SOP) wiki for The PLT Firm. This tool helps team members access, manage, and update internal process documentation from anywhere.
+# 📘 PLT Firm SOP Knowledge Base
 
+This repository hosts the staff-facing SOP Wiki, designed to be deployed via GitHub Pages.
 👉 **Live Site:** [https://iniiZeff.github.io/The-PLT-Firm-KB/](https://iniiZeff.github.io/The-PLT-Firm-KB/)
+## 🚀 Deployment
 
----
+1. Upload `index.html` and `logo.png` to the repository root (main branch).  
+2. Go to **Settings → Pages**, set source to `main` branch and root (`/`).  
+3. Save. Site will be live at `https://<username>.github.io/<repo-name>/`
 
-## 🔍 Features
+## 📝 Usage
 
-- ✅ Real-time keyword search across SOP fields (title, tags, summary, content)
-- ✅ Expandable/collapsible accordion UI for SOPs
-- ✅ Tag labels for visual filtering cues
-- ✅ Mobile-friendly responsive layout
-- ✅ Import/export SOPs using JSON
-- ✅ Automatically fetch `sops.json` for live updates
+- Click on any category card to expand or collapse that SOP section  
+- Use the search bar to filter across titles and text  
+- Access training videos and documents by clicking tooltipped links
 
----
+## 🧩 Contributions
 
-## 🗂️ Project Structure
+To update SOP content or add links:
+1. Clone or fork this repo  
+2. Edit the `data` array in `index.html`  
+3. Update titles or content string (using `<br>` for line breaks, `<a>` tags for links)  
+4. Commit & push — changes auto-deploy
 
+## 📧 Feedback
 
----
-
-## ✏️ How to Edit SOPs
-
-### Option 1: GitHub Online Editor
-1. Click `sops.json`
-2. Select the pencil ✏️ icon (Edit)
-3. Follow this format:
-
-```json
-{
-  "title": "SOP Title",
-  "tags": ["tag1", "tag2"],
-  "summary": "Short description of this SOP.",
-  "content": "Full instructions and steps here."
-}
-
+Issues or missing procedures? Email **info@pltfirm.com** or open a GitHub issue.
