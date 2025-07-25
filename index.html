@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📘 SOP Knowledge Base</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 2rem; color: #333; }
+    h1 { text-align: center; margin-bottom: 1rem; }
+    #search { width: 100%; max-width: 600px; margin: 1rem auto; padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; }
+    .controls { text-align: center; margin-bottom: 1rem; }
+    .controls button { margin: 0 0.5rem; padding: 0.5rem 1rem; font-size: 0.9rem; }
+    .sop-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 1rem; overflow: hidden; }
+    .sop-header { padding: 1rem; cursor: pointer; font-weight: bold; background: #ececec; }
+    .sop-header:hover { background: #ddd; }
+    .sop-content { padding: 1rem; display: none; }
+    .tags { margin-top: 0.5rem; }
+    .tag { display: inline-block; background: #007BFF; color: white; padding: 0.25rem 0.5rem; margin: 0 0.25rem 0.25rem 0; border-radius: 4px; font-size: 0.75rem; }
+    @media (max-width: 600px) { body { padding: 1rem; } }
+  </style>
+</head>
+<body>
+
+<h1>📘 SOP Knowledge Base</h1>
+<div class="controls">
+  <button id="btn-export">Export SOPs (JSON)</button>
+  <input type="file" id="file-in" accept=".json" style="display:none"/>
+  <button id="btn-import">Import SOPs (JSON)</button>
+</div>
+<input type="text" id="search" placeholder="🔍 Search title, tags, summary, content..." />
+<div id="sop-list"></div>
+
+<script>
+// ✅ Initial SOP list
+let sops = [
+  {
+    title: "Onboarding - Trust Setup",
+    tags: ["onboarding", "trust", "client"],
+    summary: "Steps for onboarding a new trust client including EIN and organizer.",
+    content: "Collect Personal, Business, and Trust Info. Ensure Contract is signed. Confirm invoice is paid. Apply for EIN. Create TaxDome profile. Add to Monday boards. Schedule onboarding call."
+  },
+  {
+    title: "Document & Diagram Completion",
+    tags: ["documents", "trust", "structure"],
+    summary: "Finalize trust structure and upload relevant documents.",
+    content: "Review trust info. Complete client diagram. Finalize and notarize documents. Upload to TaxDome and send to client."
+  }
+];
+
+// 🌐 Try to fetch sops.json if it exists
+fetch('sops.json')
+  .then(res => res.ok ? res.json() : Promise.reject(res.status))
+  .then(data => { sops = data; renderSOPs(sops); })
+  .catch(() => renderSOPs(sops));
+
+// 🔁 Render SOPs to DOM
+function renderSOPs(list) {
+  const container = document.getElementById('sop-list');
+  container.innerHTML = '';
+  list.forEach((sop, index) => {
+    const card = document.createElement('div'); card.className = 'sop-card';
+    const header = document.createElement('div'); header.className = 'sop-header';
+    header.textContent = sop.title;
+    header.onclick = () => {
+      const content = document.getElementById(`sop-content-${index}`);
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    };
+    const content = document.createElement('div'); content.className = 'sop-content';
+    content.id = `sop-content-${index}`;
+    content.innerHTML = `
+      <p><strong>Summary:</strong> ${sop.summary}</p>
+      <p>${sop.content}</p>
+      <div class="tags">${sop.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    `;
+    card.appendChild(header);
+    card.appendChild(content);
+    container.appendChild(card);
+  });
+}
+
+// 🔍 Search functionality
+document.getElementById('search').addEventListener('input', function () {
+  const q = this.value.toLowerCase();
+  renderSOPs(sops.filter(s =>
+    s.title.toLowerCase().includes(q) ||
+    s.summary.toLowerCase().includes(q) ||
+    s.content.toLowerCase().includes(q) ||
+    s.tags.some(tag => tag.toLowerCase().includes(q))
+  ));
+});
+
+// 💾 Export SOPs
+document.getElementById('btn-export').onclick = () => {
+  const blob = new Blob([JSON.stringify(sops, null, 2)], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.download = 'sops-export.json';
+  link.href = URL.createObjectURL(blob);
+  link.click();
+  URL.revokeObjectURL(link.href);
+};
+
+// 📂 Import SOPs
+document.getElementById('btn-import').onclick = () => document.getElementById('file-in').click();
+document.getElementById('file-in').addEventListener('change', function () {
+  const file = this.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const newSOPs = JSON.parse(e.target.result);
+      if (!Array.isArray(newSOPs)) throw new Error("Invalid JSON format");
+      sops = newSOPs;
+      renderSOPs(sops);
+      alert('SOPs imported successfully!');
+    } catch (err) {
+      alert('Failed to import SOPs: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+});
+</script>
+
+</body>
+</html>

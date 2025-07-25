@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Onboarding (Trust)",
+    "tags": ["onboarding", "trust", "client", "entity setup"],
+    "summary": "Guidelines for onboarding new trust clients from form intake to onboarding call.",
+    "content": "Collect Personal, Business, and Trust Info from the onboarding forms. Ensure Contract is signed with PLT Firm. Confirm Initial Invoice is paid. Send Pre-Onboarding Call Email. Schedule and conduct the Onboarding Call with Damon & Kat."
+  },
+  {
+    "title": "Entity Setup Phase",
+    "tags": ["onboarding", "entity", "setup", "irs", "monday"],
+    "summary": "Instructions for setting up new trust entities after onboarding call.",
+    "content": "Apply for the EIN for Trust via IRS. Create the TaxDome Profile. Add to Client Information Board in Monday. Send Onboarding Organizer to client. Send 100g Silver piece (if applicable). Send Asset List Video and links. Update Tax Return Checklist board."
+  },
+  {
+    "title": "Documents & Diagrams",
+    "tags": ["documents", "diagram", "trust", "finalize"],
+    "summary": "Document and diagram requirements post-onboarding.",
+    "content": "Review and finalize Trust information. Complete Client Diagram. Complete Asset List and follow-up. Set up Notary Call. Finalize BODSM. Confirm notarization. Upload and send trust docs to client."
+  },
+  {
+    "title": "Client Onboarding (Business)",
+    "tags": ["client onboarding", "business", "taxdome"],
+    "summary": "Steps to onboard business clients from intake to systems setup.",
+    "content": "Collect info via intake form. Confirm contract & payment. Setup TaxDome profile. Send organizer. Schedule and complete onboarding call. Connect QuickBooks if needed. Post-call: Send recap, update diagrams, assign bookkeeper, setup P&L review."
+  },
+  {
+    "title": "Virtual Assistant SOPs",
+    "tags": ["va", "assistant", "organization", "setup"],
+    "summary": "Tasks and links for VAs handling client information and file organization.",
+    "content": "Create Client Boards. Setup Items Needed Checklist. Check and align data across Monday, TaxDome, QuickBooks, ProConnect. Organize folders and files by SOP structure."
+  },
+  {
+    "title": "Sales Tax Filing Process",
+    "tags": ["sales tax", "filing", "bianca", "baele and sanders"],
+    "summary": "Monthly sales tax filing SOP including deadlines and portal login.",
+    "content": "Check recurring task. Gather sales data. Prepare summary sheet. Login to state portal. Input tax figures. Submit and pay. Save and rename confirmation. Upload to TaxDome."
+  },
+  {
+    "title": "Tax Returns Process",
+    "tags": ["tax returns", "proconnect", "filing", "client communication"],
+    "summary": "Full workflow for preparing, reviewing, and sending tax returns.",
+    "content": "Create returns in ProConnect. Notify Chad/Abdulla. Email PDF to client. Await approval. Send for e-signature. Update status based on client actions. Confirm filing once signed."
+  },
+  {
+    "title": "LLC Management & Renewals",
+    "tags": ["llc", "renewal", "boi", "rasi", "compliance"],
+    "summary": "Guidelines for managing LLCs including BOI compliance and renewals.",
+    "content": "Add to LLC Renewals Board. Request setup via RASI. File BOI within 90 days. Email client about BOI. Follow-up. Renew states as needed. File docs and invoice clients."
+  },
+  {
+    "title": "Client Diagram Creation",
+    "tags": ["diagrams", "structure", "visual", "proconnect"],
+    "summary": "Steps for creating and formatting client diagrams to reflect entities and trust structure.",
+    "content": "Use Google Drive templates. Edit names, addresses, and entity blocks. Show ownership, income flow (K-1, Schedule C). Review and QA check before saving and sharing."
+  },
+  {
+    "title": "Bookkeeping Setup & Workflow",
+    "tags": ["bookkeeping", "quickbooks", "profit and loss"],
+    "summary": "How to initiate and maintain bookkeeping for clients.",
+    "content": "Assign Chad and bookkeeper. Share Asset List. Upload statements. Reconcile in QuickBooks. Generate reports: P&L, Balance Sheet. QA check and deliver monthly updates."
+  }
+]
