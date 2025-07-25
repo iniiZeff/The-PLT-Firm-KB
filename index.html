@@ -28,6 +28,45 @@
   <button id="btn-import">Import SOPs (JSON)</button>
 </div>
 <input type="text" id="search" placeholder="🔍 Search title, tags, summary, content..." />
+  <div class="sop-card">
+  <div class="sop-header" onclick="toggleDoc()">
+    📘 PLT SOP Documentation – Full Overview
+  </div>
+  <div class="sop-content" id="full-doc">
+    <p><strong>Purpose:</strong> Standard Operating Procedures (SOPs) provide clear and consistent guidelines for performing tasks within an organization. They ensure that work is carried out safely, efficiently, and in compliance with regulations and company standards.</p>
+
+    <p><strong>Scope:</strong> This document outlines the template and key components of a standard operating procedure. It is applicable to all departments and processes within the organization.</p>
+
+    <p style="margin-top: 1rem;"><strong>📋 Key SOP Sections:</strong></p>
+    <ul>
+      <li>Onboarding (Trust)</li>
+      <li>Entity Setup</li>
+      <li>Documents & Diagrams</li>
+      <li>Property & Legal Docs</li>
+      <li>Client Onboarding</li>
+      <li>Bookkeeping Setup</li>
+      <li>Virtual Assistant Tasks</li>
+      <li>Tax Documents & File Labeling Rules</li>
+      <li>Sales Tax Filing Process</li>
+      <li>Tax Returns Workflow</li>
+      <li>LLC Management & Renewals</li>
+      <li>Client Diagrams</li>
+      <li>Monthly Bookkeeping</li>
+      <li>Standalone Tasks (e.g. 8821s)</li>
+    </ul>
+
+    <p style="margin-top:1rem">🧠 <strong>Full SOPs</strong> are available in detailed format inside the <code>sops.json</code> file or the collapsible cards below.</p>
+    <p>If you’d like to export the full document as Word or PDF, use the original reference file maintained by PLT Admin.</p>
+  </div>
+</div>
+
+<script>
+function toggleDoc() {
+  const el = document.getElementById('full-doc');
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+
 <div id="sop-list"></div>
 
 <script>
