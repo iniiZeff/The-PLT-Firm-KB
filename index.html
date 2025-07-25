@@ -1,135 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF‑8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PLT Firm SOP Wiki</title>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLT Firm SOP Knowledge Base</title>
   <style>
     :root {
-      --bg: #000;
-      --fg: gold;
-      --card-bg: #111;
-      --header-bg: #222;
+      --bg: #000; --fg: gold; --card: #111; --hdr: #222; --accent: #c0a060;
+      --font-main: Arial, sans-serif; --font-heading: Georgia, serif;
     }
     [data-theme="light"] {
-      --bg: #f9f9f9;
-      --fg: #333;
-      --card-bg: #fff;
-      --header-bg: #ddd;
+      --bg: #f3f3f3; --fg: #333; --card: #fff; --hdr: #ddd; --accent: #996e2f;
     }
-    body {
-      margin: 0; font-family: sans-serif; background: var(--bg); color: var(--fg);
-    }
-    header {
-      padding: 2rem 1rem; text-align: center; background: var(--header-bg);
-    }
+    body { margin: 0; font-family: var(--font-main); background: var(--bg); color: var(--fg); }
+    header { background: var(--hdr); text-align: center; padding: 2rem; position: relative; }
     header img { max-width: 180px; }
-    .toggle {
-      position: absolute; top: 1rem; right: 1rem;
-      cursor: pointer; color: var(--fg); font-size: 1.2rem;
-    }
-    #search {
-      width: calc(100% - 2rem); max-width: 600px; margin: 1rem auto;
-      padding: 0.8rem; font-size: 1rem; border-radius: 25px;
-      border: none; outline: none; background: var(--bg); color: var(--fg);
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
-      display: block;
-    }
-    main {
-      max-width: 1000px; margin: 2rem auto; padding: 0 1rem;
-    }
-    .category-grid {
-      display: grid; gap: 1rem;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-    .category {
-      background: var(--card-bg); padding: 1rem; border-radius: 8px;
-      cursor: pointer; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-    .category:hover { background: var(--header-bg); }
-    .section { margin-top: 1rem; border: 1px solid var(--fg); border-radius: 8px; }
-    .section-header {
-      padding: 1rem; font-weight: bold; background: var(--card-bg);
-      cursor: pointer; display: flex; justify-content: space-between;
-    }
-    .section-header:hover { background: var(--header-bg); }
-    .section-content {
-      display: none; padding: 1rem; background: var(--bg); white-space: pre-wrap;
-    }
-    a { color: var(--fg); text-decoration: underline; }
+    #themeToggle { position: absolute; top: 1rem; right: 1rem; cursor: pointer; font-size: 1.5rem; }
+    #search { max-width: 600px; width: calc(100% - 2rem); margin: 1.5rem auto; padding: .75rem 1rem; font-size: 1.1rem; border-radius: 25px; background: var(--bg); color: var(--fg); border: none; box-shadow: 0 0 10px rgba(0,0,0,0.5); outline: none; }
+    main { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+    .grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .card { background: var(--card); color: var(--fg); padding: 1.2rem; border-radius: 8px; text-align: center; font-size: 1.1rem; font-weight: bold; cursor: pointer; box-shadow: 0 3px 6px rgba(0,0,0,0.5); transition: transform 0.2s, background 0.2s; }
+    .card:hover { background: var(--accent); transform: translateY(-3px); }
+    footer { margin: 3rem auto; max-width: 1000px; padding: 1.5rem 1rem; background: var(--card); border-radius: 8px; text-align: center; font-size: .95rem; }
+    footer a { color: var(--accent); text-decoration: underline; }
   </style>
 </head>
-<body>
-
-<header>
-  <img src="logo.png" alt="PLT Logo">
-  <div class="toggle" id="themeToggle">☀️</div>
-  <input type="text" id="search" placeholder="🔍 Search SOPs...">
-</header>
-
-<main>
-  <div class="category-grid" id="categories"></div>
-  <div id="sections"></div>
-</main>
-
+<body data-theme="dark">
+  <header>
+    <img src="logo.png" alt="PLT Logo">
+    <div id="themeToggle">☀️</div>
+    <h1>PLT Firm SOP Knowledge Base</h1>
+    <input type="text" id="search" placeholder="🔍 Search SOPs...">
+  </header>
+  <main>
+    <div class="grid" id="card-grid">
+      <!-- Cards will be injected here -->
+    </div>
+  </main>
+  <footer>
+    <p>PLT Firm SOP Wiki • Feedback or updates? Email <a href="mailto:info@pltfirm.com">info@pltfirm.com</a></p>
+  </footer>
 <script>
-  const data = [
-    { title: "Purpose & Scope", content: `Purpose
-Standard Operating Procedures (SOPs) provide clear and consistent guidelines for performing tasks within an organization. They ensure that work is carried out safely, efficiently, and in compliance with regulations and company standards.
-
-Scope
-This document outlines the template and key components of a standard operating procedure. It is applicable to all departments and processes within the organization.` },
-    { title: "Onboarding (Trust)", content: `Collect Personal, Business, and Trust Info from the onboarding forms
-Ensure Contract is signed with PLT Firm
-Confirm Initial Invoice is paid
-Send Pre‑Onboarding Call Email
-Schedule and conduct the Onboarding Call with Damon & Kat` },
-    // Add more sections here following same structure...
+  const pages = [
+    { title: "Purpose", filename: "purpose.html" },
+    { title: "Onboarding (Trust)", filename: "onboarding-trust.html" },
+    { title: "Client Onboarding", filename: "client-onboarding.html" },
+    { title: "Virtual Assistant Tasks", filename: "virtual-assistant-tasks.html" },
+    { title: "Sales Tax", filename: "sales-tax.html" },
+    { title: "Tax Returns", filename: "tax-returns.html" },
+    { title: "LLC Management", filename: "llc-management.html" },
+    { title: "Client Diagrams", filename: "client-diagrams.html" },
+    { title: "Bookkeeping Setup", filename: "bookkeeping-setup.html" },
+    { title: "Standalone Tasks (8821s)", filename: "standalone-tasks.html" },
+    { title: "Client Follow‑Ups", filename: "client-follow-ups.html" }
   ];
 
-  const categoriesEl = document.getElementById('categories');
-  data.forEach((sec,i) => {
-    const cat = document.createElement('div');
-    cat.className = 'category';
-    cat.textContent = sec.title;
-    cat.onclick = () => document.getElementById(`header-${i}`).click();
-    categoriesEl.appendChild(cat);
+  const grid = document.getElementById('card-grid');
+  pages.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'card';
+    el.textContent = p.title;
+    el.onclick = () => window.location.href = p.filename;
+    grid.appendChild(el);
   });
 
-  const sectionsEl = document.getElementById('sections');
-  data.forEach((sec,i) => {
-    const secEl = document.createElement('div');
-    secEl.className = 'section';
-    secEl.innerHTML = `
-      <div class="section-header" id="header-${i}">
-        ${sec.title} <span>⬇️</span>
-      </div>
-      <div class="section-content" id="content-${i}">${sec.content.replace(/\\n/g,'<br>')}</div>`;
-    sectionsEl.appendChild(secEl);
-    secEl.querySelector('.section-header').onclick = () => {
-      const c = document.getElementById(`content-${i}`);
-      c.style.display = c.style.display === 'block' ? 'none' : 'block';
-    };
-  });
+  document.getElementById('themeToggle').onclick = () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    document.getElementById('themeToggle').textContent = next === 'light' ? '☀️' : '🌙';
+  };
 
   document.getElementById('search').addEventListener('input', e => {
     const term = e.target.value.toLowerCase();
-    data.forEach((sec,i) => {
-      const show = sec.title.toLowerCase().includes(term) || sec.content.toLowerCase().includes(term);
-      document.getElementById(`content-${i}`).style.display = show ? 'block' : 'none';
-      document.querySelectorAll('.section')[i].style.display = show ? 'block' : 'none';
+    document.querySelectorAll('.card').forEach((card, i) => {
+      const visible = pages[i].title.toLowerCase().includes(term);
+      card.style.display = visible ? 'block' : 'none';
     });
   });
-
-  // theme toggle
-  const toggle = document.getElementById('themeToggle');
-  toggle.onclick = () => {
-    const d = document.documentElement;
-    const is = d.getAttribute('data-theme') === 'light';
-    d.setAttribute('data-theme', is ? 'dark' : 'light');
-    toggle.textContent = is ? '☀️' : '🌙';
-  };
 </script>
-
 </body>
 </html>
