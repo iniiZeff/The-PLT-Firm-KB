@@ -1,162 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📘 SOP Knowledge Base</title>
+  <meta charset="UTF‑8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLT Firm SOP Wiki</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 2rem; color: #333; }
-    h1 { text-align: center; margin-bottom: 1rem; }
-    #search { width: 100%; max-width: 600px; margin: 1rem auto; padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; }
-    .controls { text-align: center; margin-bottom: 1rem; }
-    .controls button { margin: 0 0.5rem; padding: 0.5rem 1rem; font-size: 0.9rem; }
-    .sop-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 1rem; overflow: hidden; }
-    .sop-header { padding: 1rem; cursor: pointer; font-weight: bold; background: #ececec; }
-    .sop-header:hover { background: #ddd; }
-    .sop-content { padding: 1rem; display: none; }
-    .tags { margin-top: 0.5rem; }
-    .tag { display: inline-block; background: #007BFF; color: white; padding: 0.25rem 0.5rem; margin: 0 0.25rem 0.25rem 0; border-radius: 4px; font-size: 0.75rem; }
-    @media (max-width: 600px) { body { padding: 1rem; } }
+    :root {
+      --bg: #000;
+      --fg: gold;
+      --card-bg: #111;
+      --header-bg: #222;
+    }
+    [data-theme="light"] {
+      --bg: #f9f9f9;
+      --fg: #333;
+      --card-bg: #fff;
+      --header-bg: #ddd;
+    }
+    body {
+      margin: 0; font-family: sans-serif; background: var(--bg); color: var(--fg);
+    }
+    header {
+      padding: 2rem 1rem; text-align: center; background: var(--header-bg);
+    }
+    header img { max-width: 180px; }
+    .toggle {
+      position: absolute; top: 1rem; right: 1rem;
+      cursor: pointer; color: var(--fg); font-size: 1.2rem;
+    }
+    #search {
+      width: calc(100% - 2rem); max-width: 600px; margin: 1rem auto;
+      padding: 0.8rem; font-size: 1rem; border-radius: 25px;
+      border: none; outline: none; background: var(--bg); color: var(--fg);
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+      display: block;
+    }
+    main {
+      max-width: 1000px; margin: 2rem auto; padding: 0 1rem;
+    }
+    .category-grid {
+      display: grid; gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .category {
+      background: var(--card-bg); padding: 1rem; border-radius: 8px;
+      cursor: pointer; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .category:hover { background: var(--header-bg); }
+    .section { margin-top: 1rem; border: 1px solid var(--fg); border-radius: 8px; }
+    .section-header {
+      padding: 1rem; font-weight: bold; background: var(--card-bg);
+      cursor: pointer; display: flex; justify-content: space-between;
+    }
+    .section-header:hover { background: var(--header-bg); }
+    .section-content {
+      display: none; padding: 1rem; background: var(--bg); white-space: pre-wrap;
+    }
+    a { color: var(--fg); text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<h1>📘 SOP Knowledge Base</h1>
-<div class="controls">
-  <button id="btn-export">Export SOPs (JSON)</button>
-  <input type="file" id="file-in" accept=".json" style="display:none"/>
-  <button id="btn-import">Import SOPs (JSON)</button>
-</div>
-<input type="text" id="search" placeholder="🔍 Search title, tags, summary, content..." />
-  <div class="sop-card">
-  <div class="sop-header" onclick="toggleDoc()">
-    📘 PLT SOP Documentation – Full Overview
-  </div>
-  <div class="sop-content" id="full-doc">
-    <p><strong>Purpose:</strong> Standard Operating Procedures (SOPs) provide clear and consistent guidelines for performing tasks within an organization. They ensure that work is carried out safely, efficiently, and in compliance with regulations and company standards.</p>
+<header>
+  <img src="logo.png" alt="PLT Logo">
+  <div class="toggle" id="themeToggle">☀️</div>
+  <input type="text" id="search" placeholder="🔍 Search SOPs...">
+</header>
 
-    <p><strong>Scope:</strong> This document outlines the template and key components of a standard operating procedure. It is applicable to all departments and processes within the organization.</p>
-
-    <p style="margin-top: 1rem;"><strong>📋 Key SOP Sections:</strong></p>
-    <ul>
-      <li>Onboarding (Trust)</li>
-      <li>Entity Setup</li>
-      <li>Documents & Diagrams</li>
-      <li>Property & Legal Docs</li>
-      <li>Client Onboarding</li>
-      <li>Bookkeeping Setup</li>
-      <li>Virtual Assistant Tasks</li>
-      <li>Tax Documents & File Labeling Rules</li>
-      <li>Sales Tax Filing Process</li>
-      <li>Tax Returns Workflow</li>
-      <li>LLC Management & Renewals</li>
-      <li>Client Diagrams</li>
-      <li>Monthly Bookkeeping</li>
-      <li>Standalone Tasks (e.g. 8821s)</li>
-    </ul>
-
-    <p style="margin-top:1rem">🧠 <strong>Full SOPs</strong> are available in detailed format inside the <code>sops.json</code> file or the collapsible cards below.</p>
-    <p>If you’d like to export the full document as Word or PDF, use the original reference file maintained by PLT Admin.</p>
-  </div>
-</div>
+<main>
+  <div class="category-grid" id="categories"></div>
+  <div id="sections"></div>
+</main>
 
 <script>
-function toggleDoc() {
-  const el = document.getElementById('full-doc');
-  el.style.display = el.style.display === 'block' ? 'none' : 'block';
-}
-</script>
+  const data = [
+    { title: "Purpose & Scope", content: `Purpose
+Standard Operating Procedures (SOPs) provide clear and consistent guidelines for performing tasks within an organization. They ensure that work is carried out safely, efficiently, and in compliance with regulations and company standards.
 
-<div id="sop-list"></div>
+Scope
+This document outlines the template and key components of a standard operating procedure. It is applicable to all departments and processes within the organization.` },
+    { title: "Onboarding (Trust)", content: `Collect Personal, Business, and Trust Info from the onboarding forms
+Ensure Contract is signed with PLT Firm
+Confirm Initial Invoice is paid
+Send Pre‑Onboarding Call Email
+Schedule and conduct the Onboarding Call with Damon & Kat` },
+    // Add more sections here following same structure...
+  ];
 
-<script>
-// ✅ Initial SOP list
-let sops = [
-  {
-    title: "Onboarding - Trust Setup",
-    tags: ["onboarding", "trust", "client"],
-    summary: "Steps for onboarding a new trust client including EIN and organizer.",
-    content: "Collect Personal, Business, and Trust Info. Ensure Contract is signed. Confirm invoice is paid. Apply for EIN. Create TaxDome profile. Add to Monday boards. Schedule onboarding call."
-  },
-  {
-    title: "Document & Diagram Completion",
-    tags: ["documents", "trust", "structure"],
-    summary: "Finalize trust structure and upload relevant documents.",
-    content: "Review trust info. Complete client diagram. Finalize and notarize documents. Upload to TaxDome and send to client."
-  }
-];
-
-// 🌐 Try to fetch sops.json if it exists
-fetch('sops.json')
-  .then(res => res.ok ? res.json() : Promise.reject(res.status))
-  .then(data => { sops = data; renderSOPs(sops); })
-  .catch(() => renderSOPs(sops));
-
-// 🔁 Render SOPs to DOM
-function renderSOPs(list) {
-  const container = document.getElementById('sop-list');
-  container.innerHTML = '';
-  list.forEach((sop, index) => {
-    const card = document.createElement('div'); card.className = 'sop-card';
-    const header = document.createElement('div'); header.className = 'sop-header';
-    header.textContent = sop.title;
-    header.onclick = () => {
-      const content = document.getElementById(`sop-content-${index}`);
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    };
-    const content = document.createElement('div'); content.className = 'sop-content';
-    content.id = `sop-content-${index}`;
-    content.innerHTML = `
-      <p><strong>Summary:</strong> ${sop.summary}</p>
-      <p>${sop.content}</p>
-      <div class="tags">${sop.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-    `;
-    card.appendChild(header);
-    card.appendChild(content);
-    container.appendChild(card);
+  const categoriesEl = document.getElementById('categories');
+  data.forEach((sec,i) => {
+    const cat = document.createElement('div');
+    cat.className = 'category';
+    cat.textContent = sec.title;
+    cat.onclick = () => document.getElementById(`header-${i}`).click();
+    categoriesEl.appendChild(cat);
   });
-}
 
-// 🔍 Search functionality
-document.getElementById('search').addEventListener('input', function () {
-  const q = this.value.toLowerCase();
-  renderSOPs(sops.filter(s =>
-    s.title.toLowerCase().includes(q) ||
-    s.summary.toLowerCase().includes(q) ||
-    s.content.toLowerCase().includes(q) ||
-    s.tags.some(tag => tag.toLowerCase().includes(q))
-  ));
-});
+  const sectionsEl = document.getElementById('sections');
+  data.forEach((sec,i) => {
+    const secEl = document.createElement('div');
+    secEl.className = 'section';
+    secEl.innerHTML = `
+      <div class="section-header" id="header-${i}">
+        ${sec.title} <span>⬇️</span>
+      </div>
+      <div class="section-content" id="content-${i}">${sec.content.replace(/\\n/g,'<br>')}</div>`;
+    sectionsEl.appendChild(secEl);
+    secEl.querySelector('.section-header').onclick = () => {
+      const c = document.getElementById(`content-${i}`);
+      c.style.display = c.style.display === 'block' ? 'none' : 'block';
+    };
+  });
 
-// 💾 Export SOPs
-document.getElementById('btn-export').onclick = () => {
-  const blob = new Blob([JSON.stringify(sops, null, 2)], { type: 'application/json' });
-  const link = document.createElement('a');
-  link.download = 'sops-export.json';
-  link.href = URL.createObjectURL(blob);
-  link.click();
-  URL.revokeObjectURL(link.href);
-};
+  document.getElementById('search').addEventListener('input', e => {
+    const term = e.target.value.toLowerCase();
+    data.forEach((sec,i) => {
+      const show = sec.title.toLowerCase().includes(term) || sec.content.toLowerCase().includes(term);
+      document.getElementById(`content-${i}`).style.display = show ? 'block' : 'none';
+      document.querySelectorAll('.section')[i].style.display = show ? 'block' : 'none';
+    });
+  });
 
-// 📂 Import SOPs
-document.getElementById('btn-import').onclick = () => document.getElementById('file-in').click();
-document.getElementById('file-in').addEventListener('change', function () {
-  const file = this.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    try {
-      const newSOPs = JSON.parse(e.target.result);
-      if (!Array.isArray(newSOPs)) throw new Error("Invalid JSON format");
-      sops = newSOPs;
-      renderSOPs(sops);
-      alert('SOPs imported successfully!');
-    } catch (err) {
-      alert('Failed to import SOPs: ' + err.message);
-    }
+  // theme toggle
+  const toggle = document.getElementById('themeToggle');
+  toggle.onclick = () => {
+    const d = document.documentElement;
+    const is = d.getAttribute('data-theme') === 'light';
+    d.setAttribute('data-theme', is ? 'dark' : 'light');
+    toggle.textContent = is ? '☀️' : '🌙';
   };
-  reader.readAsText(file);
-});
 </script>
 
 </body>
