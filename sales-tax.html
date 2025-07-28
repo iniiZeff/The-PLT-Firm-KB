@@ -1,46 +1,204 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Sales Tax – PLT Firm SOP</title>
+<html lang="en"><head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sales Tax SOP – PLT Firm SOP</title>
   <style>
-    /* Shared styling identical across all SOP pages */
-    /* Theme vars, fonts, header/footer, nav buttons, etc. */
-  </style>
+    :root {--bg:#000;--fg:gold;--card:#111;--hdr:#222;--accent:#c0a060;}
+    [data-theme="light"] {--bg:#f3f3f3;--fg:#222;--card:#fff;--hdr:#ddd;--accent:#996e2f;}
+    body {background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;margin:0;padding:1rem;line-height:1.6;}
+    header {background:var(--hdr);padding:1rem;position:relative;text-align:center;}
+    #themeToggle {position:absolute;top:1rem;right:1rem;cursor:pointer;font-size:1.2rem;}
+    nav a {color:var(--accent);margin:0 .5rem;text-decoration:underline;}
+    h1,h2,h3 {color:var(--accent);}
+    ul {margin-left:1.2rem;}
+    footer {margin-top:2rem;border-top:1px solid var(--accent);padding-top:1rem;text-align:center;}
+    iframe {border:none;}
+    .split {display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;margin-bottom:2rem;}
+    .split > div {flex:1;min-width:300px;}
+    .divider {border:none;height:8px;background:gold;margin:2rem 0;}
+  .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+
+    .intro-split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: 0.2s;
+    }
+
+ 
+
+    a { color: inherit; text-decoration: underline; }
+</style>
 </head>
 <body data-theme="dark">
-<header>
-  <img src="logo.png" alt="PLT Logo">
-  <div id="themeToggle">☀️</div>
-  <h1>Sales Tax SOP</h1>
-  <nav>
-    <a href="index.html">🏠 Home</a> | <a href="javascript:history.back()">🔙 Back</a>
-  </nav>
-</header>
-<main>
-  <section>
-    <h2>Monthly Sales Tax Filing</h2>
-    <p>… full step‑by‑step content from your document …</p>
-    <ul>
-      <li>📄 <a href="https://docs.google.com/document/d/1x8WBE...>" class="tooltip" data-tooltip="Sales Tax Logins & Steps">Sales Tax Instructions</a></li>
-      <li>📽 <a href="https://scribehow.com/shared/..." class="tooltip" data-tooltip="Bianca Sales Tax Process video">Bianca Sales Tax Process</a></li>
-      <!-- more links here -->
-    </ul>
-  </section>
-  <section>
-    <h2>Filing Deadlines</h2>
-    <ul>
-      <li>Florida (Bianca): 15th of each month</li>
-      <li>Washington (BASS): 20th of each month</li>
-      <!-- more content -->
-    </ul>
-  </section>
-</main>
-<footer>
-  <p>PLT SOP Knowledge Base • feedback: <a href="mailto:info@pltfirm.com">info@pltfirm.com</a></p>
-</footer>
-<script>
-  /* Toggle theme code same as index.js */
-</script>
+  <header>
+    <a href="index.html"><img src="logo-dark.png" alt="PLT Logo" style="width:200px;margin-bottom:1rem;"></a>
+    <h1>Sales Tax SOP</h1>
+    <div id="themeToggle">☀️</div>
+    <nav><a href="index.html">🏠 Home</a> | <a href="javascript:history.back()">🔙 Back</a></nav>
+  </header>
+  <main>
+
+    <div class="container">
+    <div class="intro-split">
+      <div class="card">
+        <h2>Training Links</h2>
+
+        <ul>
+          <li><strong>Bianca Sales Tax Process</strong>
+            <ul>
+              <li><a href="https://scribehow.com/shared/Bianca_Ben_Monthly_Sales_Tax__hhE9t8c7TDyAJkCLsci1QA">Bianca Sales Tax - Step by Step</a></li>
+            </ul>
+          </li>
+          <li><strong>Baele and Sanders Sales Tax Process</strong>
+            <ul>
+              <li><a href="https://scribehow.com/viewer/Baele_and_Sanders_WA_Excise_Tax_Filing_and_Payment__Step_1__GMZlVGzWSbeN2g3fjiu0HQ?referrer=workspace">Baele and Sanders Sales Tax - Step 1</a></li>
+              <li><a href="https://scribehow.com/viewer/Baele_and_Sanders_WA_Excise_Tax_Filing_and_Payment__Step_2__n5LMDWVGRmOSfmF8MjVJYg?referrer=workspace">Baele and Sanders Sales Tax - Step 2</a></li>
+              <li><a href="https://scribehow.com/viewer/Baele_and_Sanders_WA_Excise_Tax_Filing_and_Payment__Step_3__jpnq2VmRSw6_ZXJUjfj-dg?referrer=workspace">Baele and Sanders Sales Tax - Step 3</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div> 
+      <div>
+
+<div class="container">
+    <div class="intro-split">
+      <div class="card">
+        <h2>Applies To</h2>
+        <ul>
+          <li>For Bianca and BAELE AND SANDERS SERVICES, LLC</li>
+          <li>All clients with recurring monthly sales tax filing requirements</li>
+        </ul>
+        <h2>Filing Deadlines</h2>
+        <ul>
+          <li><strong>Bianca (Florida):</strong> 15th of each month</li>
+          <li><strong>BAELE AND SANDERS (Washington):</strong> 20th of each month</span></li>
+        </ul>
+      </div>
+    </div> </div> </div> </div>
+
+    <hr class="divider"/>
+
+    <h2 style="margin-bottom:1rem;">Step-by-Step Filing Process</h2>
+    <div class="split">
+      <div>
+        <h3>Step 1: Check Assigned Task</h3>
+        <ul>
+          <li>Go to Monday.com > Recurring Tasks > Monthly Sales Tax</li>
+          <li>Locate the current month’s task for your assigned client</li>
+          <li>Open their linked Google Sheet</li>
+          <li>Confirm if a sheet exists for this month</li>
+          <li>If not, duplicate the previous month’s tab and rename it</li>
+        </ul>
+
+        <h3>Step 2: Gather Sales Data</h3>
+        <ul>
+          <li>Source data from RazorSync, QuickBooks, Client Spreadsheet, or POS system</li>
+          <li>Use filters to set date to previous calendar month</li>
+          <li>Export data to Excel or CSV</li>
+          <li>Remove rows with $0 sales tax</li>
+          <li>Paste into client’s Google Sheet using columns:
+            <ul>
+              <li>Display Name</li>
+              <li>Gross Sales</li>
+              <li>Sales Tax</li>
+              <li>Code (if multi-location)</li>
+              <li>Clean any old/unneeded data</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Step 3: Review and Prepare Filing Amounts</h3>
+        <ul>
+          <li>Sort data by location code</li>
+          <li>Group rows with same code</li>
+          <li>Use SUM formula to total gross per code</li>
+          <li>Prepare list of codes and totals</li>
+          <li>Flat filers: use cleaned monthly gross sales</li>
+          <li>Verify all codes have totals and total matches sum of grouped codes</li>
+        </ul>
+
+        <h3>Step 4: Log In to Filing Portal</h3>
+        <ul>
+          <li>Retrieve credentials from LastPass</li>
+          <li>Access correct state portal (FL, WA, etc.)</li>
+          <li>Select the return period (previous month)</li>
+          <li>Choose the correct account/entity</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Step 5: Input Tax Details</h3>
+        <ul>
+          <li>Enter Gross Sales and Taxable Amounts</li>
+          <li>Enter code-based totals (for multi-location clients)</li>
+          <li>Apply collection allowance (if applicable)</li>
+          <li>Review for accuracy</li>
+          <li>Proceed to payment screen</li>
+        </ul>
+
+        <h3>Step 6: Submit Payment</h3>
+        <ul>
+          <li>Use saved banking info</li>
+          <li>ACH Debit → Checking → Corporate</li>
+          <li>Re-enter payment if prompted</li>
+          <li>Submit the return</li>
+          <li>Download the PDF confirmation</li>
+        </ul>
+
+        <h3>Step 7: Save & Upload</h3>
+        <ul>
+          <li>Rename PDF using format: Client - [Month Year] Sales Tax Confirmation.pdf</li>
+          <li>Go to: TaxDome > Client > Tax Documents > Sales and Use Tax</li>
+          <li>Upload the confirmation document</li>
+        </ul>
+
+        <h3>Additional Notes</h3>
+        <ul>
+          <li>Always refer to the client-specific SOP for portal URLs, codes, and payment settings</li>
+          <li>Consult a team lead for address/code guidance</li>
+          <li>Log any unfiled month with reason or delay</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Video Walkthroughs</h2>
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <h3>Bianca's Sales Tax</h3>
+      <iframe src="https://www.loom.com/embed/b154b65527554ffe9368e26d6e6dfeec" width="80%" height="400" allowfullscreen></iframe>
+    </div>
+    <div class="split">
+      <div>
+        <h3>Baele and Sanders Sales Tax – Part 1</h3>
+        <iframe src="https://www.loom.com/embed/477af5625cd8445398994f5bad18a50b" width="100%" height="315" allowfullscreen></iframe>
+      </div>
+      <div>
+        <h3>Baele and Sanders Sales Tax – Part 2</h3>
+        <iframe src="https://www.loom.com/embed/703ab74f09e14f4e8bc08009cf46e92b" width="100%" height="315" allowfullscreen></iframe>
+      </div>
+    </div>
+  </main>
+  <footer>PLT Firm SOP – Sales Tax • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a></footer>
+  <script>
+    document.getElementById('themeToggle').onclick = function() {
+      const t = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', t);
+      document.getElementById('themeToggle').textContent = t === 'light' ? '🌙' : '☀️';
+    };
+  </script>
 </body>
 </html>
