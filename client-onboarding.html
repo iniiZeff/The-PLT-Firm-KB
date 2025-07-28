@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Client Onboarding – PLT Firm SOP</title>
+  <style>
+    :root{--bg:#000;--fg:gold;--card:#111;--hdr:#222;--accent:#c0a060;}
+    [data-theme="light"]{--bg:#f3f3f3;--fg:#222;--card:#fff;--hdr:#ddd;--accent:#996e2f;}
+    body{background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;margin:0;padding:1rem;line-height:1.6;}
+    header{background:var(--hdr);padding:1rem;position:relative;text-align:center;}
+    #themeToggle{position:absolute;top:1rem;right:1rem;cursor:pointer;font-size:1.2rem;}
+    nav a{color:var(--accent);margin:0 .5rem;text-decoration:underline;}
+    h1,h2{color:var(--accent);}
+    ul{margin-left:1.2rem;}
+    footer{margin-top:2rem;border-top:1px solid var(--accent);padding-top:1rem;text-align:center;}
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <h1>Client Onboarding SOP</h1>
+    <div id="themeToggle">☀️</div>
+    <nav><a href="index.html">🏠 Home</a> | <a href="javascript:history.back()">🔙 Back</a></nav>
+  </header>
+  <main>
+    <h2>Initial Setup</h2>
+    <ul>
+      <li>Collect Personal & Business Info via intake form</li>
+      <li>Confirm contract signed and initial invoice paid</li>
+      <li>Setup monthly payment option</li>
+      <li>Add client to billing spreadsheet and board</li>
+    </ul>
+    <h2>System Setup</h2>
+    <ul>
+      <li>Create TaxDome profile, send organizer via platform</li>
+      <li>Pre‑call email and schedule onboarding call with Damon & Kat</li>
+      <li>Connect QuickBooks if applicable</li>
+    </ul>
+    <h2>Post‑Call Follow-Up</h2>
+    <ul>
+      <li>Send recap email</li>
+      <li>Finalize client diagram during/after call</li>
+      <li>Ensure organizer completed and reviewed</li>
+      <li>Add to Tax Return Checklist board and ProConnect</li>
+      <li>Assign bookkeeper (Chad + VA), confirm QB up to date</li>
+      <li>Schedule P&L review</li>
+    </ul>
+    <h2>Internal Organization</h2>
+    <ul>
+      <li>Add client to internal boards: info, return list, birthday, renewals</li>
+      <li>Organize files in TaxDome using SOP folder naming conventions</li>
+    </ul>
+  </main>
+  <footer>PLT Firm SOP – Client Onboarding • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a></footer>
+  <script>
+    document.getElementById('themeToggle').onclick = ()=>{
+      const t = document.body.getAttribute('data-theme')==='light'?'dark':'light';
+      document.body.setAttribute('data-theme',t);
+      document.getElementById('themeToggle').textContent = t==='light'?'🌙':'☀️';
+    };
+  </script>
+</body>
+</html>
