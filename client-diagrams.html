@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Diagrams – PLT Firm SOP</title>
+  <style>
+    :root { --bg:#000; --fg:gold; --card:#111; --hdr:#222; --accent:#c0a060; --dropbg:#444; }
+    [data-theme="light"] { --bg:#f3f3f3; --fg:#222; --card:#fff; --hdr:#ddd; --accent:#996e2f; --dropbg:#ddd; }
+
+    body { background:var(--bg); color:var(--fg); font-family:Arial, sans-serif; margin:0; padding:1rem; line-height:1.6; }
+    header { background:var(--hdr); padding:1rem; text-align:center; position:relative; }
+
+    .logo { height:200px; max-width:100%; margin-bottom:1rem; }
+    .logo.light { display:none; }
+    [data-theme="light"] .logo.light { display:inline; }
+    [data-theme="light"] .logo.dark { display:none; }
+
+    #themeToggle { position:absolute; top:1rem; right:1rem; cursor:pointer; font-size:1.2rem; }
+    .search-box { position:absolute; top:1rem; right:3.5rem; }
+    .search-box input { padding:0.4rem 0.8rem; border-radius:20px; border:none; background:var(--card); color:var(--fg); font-size:0.9rem; }
+
+    h1 { color:var(--fg); margin:0.5rem 0; }
+
+    .nav-container { display:flex; justify-content:center; gap:1rem; margin-top:0.8rem; flex-wrap:wrap; }
+    .nav-links a { color:var(--accent); text-decoration:none; font-size:0.95rem; }
+    .nav-links a:hover { text-decoration:underline; }
+
+    .container { max-width:1000px; margin:auto; padding:0 1rem; }
+
+    .section { background:var(--card); padding:1.2rem; border-radius:8px; margin-bottom:1.5rem; box-shadow:0 2px 5px rgba(0,0,0,0.3); }
+    h2 { color:var(--accent); cursor:pointer; margin-bottom:0.5rem; }
+    h2:hover { background:var(--accent); color:var(--bg); padding:0.25rem 0.5rem; border-radius:4px; }
+
+    ul { list-style:none; padding-left:1rem; display:none; background:var(--dropbg); border-radius:6px; padding:1rem; margin-top:1rem; }
+    ul.show { display:block; }
+    li { margin-bottom:0.5rem; }
+    input[type="checkbox"] { margin-right:0.5rem; }
+
+    pre { background:rgba(255,255,255,0.05); padding:1rem; border-radius:6px; font-size:0.9rem; white-space:pre-wrap; }
+
+    .section-divider { border:none; height:5px; background:var(--accent); border-radius:3px; margin:1.5rem 0 0.8rem; }
+
+    footer a { color:var(--accent); }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <a href="index.html">
+      <img src="logo-dark.png" class="logo dark" alt="PLT Logo" />
+      <img src="logo-light.png" class="logo light" alt="PLT Logo" />
+    </a>
+    <h1>Client Diagrams</h1>
+
+    <div class="search-box">
+      <input type="text" id="filterSections" placeholder="🔍 Search..." />
+    </div>
+    <div id="themeToggle">☀️</div>
+
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="onboarding-trust.html">🔙 Trust Onboarding</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="sectionContainer">
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Purpose</h2>
+      <ul class="show">
+        <li>To visually document a client’s business structure, trust relationships, tax entity types, ownership %, and income flow (K-1s, Schedule C, W-2s).</li>
+        <li>Useful for tax prep, team alignment, and client clarity.</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Step 1: Find Template Diagram</h2>
+      <ul>
+        <li>Open Google Drive → Client Diagram folder</li>
+        <li>Locate a diagram with similar structure (e.g., trust + businesses)</li>
+        <li>Make a copy and rename to: <code>[Client Name] – Client Diagram</code></li>
+        <li>Example: <code>FATLAND – Client Diagram</code></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Step 2: Update Core Client Info</h2>
+      <ul>
+        <li>Update the Client Information block: full name, DOB, SSN, email</li>
+        <li>Use Alt+Shift+T (Cmd+Shift+T on Mac) for tooltips</li>
+        <li>Add spouse and dependents (grouped under parents)</li>
+        <li>Use small, clean boxes for each person</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Step 3: Categorize & Place Entities</h2>
+      <ul>
+        <li><strong>Left:</strong> Dissolved businesses</li>
+        <li><strong>Center:</strong> Client-owned active businesses (S-corps, Sch C)</li>
+        <li><strong>Right:</strong> Partnerships (1065s)</li>
+        <li><strong>Bottom/Top Right:</strong> Trusts (Superior, Business Trusts)</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Step 4: Add & Format Entities</h2>
+      <ul>
+        <li>Copy/paste existing entity boxes into correct section</li>
+        <li>Update: Name, EIN, Type, Status, Address, % Ownership</li>
+        <li>Color Coding:
+          <ul>
+            <li>Blue – S-Corp</li>
+            <li>Yellow – Schedule C</li>
+            <li>Red – 1065</li>
+            <li>Gray – Dissolved</li>
+            <li>Green – Trust-owned</li>
+          </ul>
+        </li>
+        <li>Add tooltips for business details (Alt+Shift+T or Cmd+Shift+T)</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Step 5: Determine Income Flow</h2>
+      <ul>
+        <li>Check TaxDome (1040, 1065, 1120S) for where income flows</li>
+        <li>Draw arrows with labels (e.g., “Schedule C → 1040”, “K-1 → Trust”)</li>
+        <li>Connect businesses with trust or individuals depending on ownership</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Step 6: Special Considerations</h2>
+      <ul>
+        <li><strong>Trust-Owned:</strong> Include trust EIN, address, connect with K-1 label</li>
+        <li><strong>Dissolved Entities:</strong> Place on left side, still include EIN/history</li>
+        <li><strong>Zero Activity:</strong> Label with “No 2023 Activity” or “Dissolved [Year]”</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleList(this)">Step 7: Final Review & Save</h2>
+      <ul>
+        <li>Cross-check:
+          <ul>
+            <li>1040, 1041, K-1s, Schedule Cs</li>
+            <li>Ownership percentages</li>
+            <li>Diagram title + location</li>
+          </ul>
+        </li>
+        <li>Save to: <code>Google Drive → Client Diagrams → [Client Last Name]</code></li>
+        <li>If trainee: Share for QA with mentor or Kat</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+  </main>
+
+  <footer style="text-align:center;margin-top:2rem;">
+    PLT Firm SOP – Client Diagrams • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').onclick = function () {
+      const t = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', t);
+      document.getElementById('themeToggle').textContent = t === 'light' ? '🌙' : '☀️';
+    };
+
+    function toggleList(el) {
+      const ul = el.nextElementSibling;
+      if (ul && ul.tagName.toLowerCase() === 'ul') {
+        ul.classList.toggle('show');
+      }
+    }
+
+    document.getElementById('filterSections').addEventListener('input', function () {
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('.section').forEach(section => {
+        const content = section.innerText.toLowerCase();
+        const list = section.querySelector('ul');
+        const matched = content.includes(term);
+        section.style.display = matched ? 'block' : 'none';
+        if (matched && list) list.classList.add('show');
+        else if (list) list.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>

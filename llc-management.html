@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LLC Renewals – PLT Firm SOP</title>
+  <style>
+    :root { --bg:#000; --fg:gold; --card:#111; --hdr:#222; --accent:#c0a060; --dropbg:#444; }
+    [data-theme="light"] { --bg:#f3f3f3; --fg:#222; --card:#fff; --hdr:#ddd; --accent:#996e2f; --dropbg:#ddd; }
+
+    body { background:var(--bg); color:var(--fg); font-family:Arial, sans-serif; margin:0; padding:1rem; line-height:1.6; }
+    header { background:var(--hdr); padding:1rem 1rem 0.5rem; text-align:center; position:relative; }
+
+    .logo { height:200px; max-width:100%; margin-bottom:1rem; }
+    .logo.light { display:none; }
+    [data-theme="light"] .logo.light { display:inline; }
+    [data-theme="light"] .logo.dark { display:none; }
+
+    #themeToggle { position:absolute; top:1rem; right:1rem; cursor:pointer; font-size:1.2rem; }
+    .search-box { position:absolute; top:1rem; right:3.5rem; }
+    .search-box input { padding:0.4rem 0.8rem; border-radius:20px; border:none; background:var(--card); color:var(--fg); font-size:0.9rem; }
+    .search-box input::placeholder { font-family:inherit; }
+
+    h1 { color:var(--fg); margin:0.5rem 0; }
+
+    .nav-container { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:0.8rem; }
+    .nav-links a { color:var(--accent); margin:0 0.5rem; text-decoration:none; font-size:0.95rem; }
+    .nav-links a:hover { text-decoration:underline; }
+
+    .container { max-width:1000px; margin:auto; padding:0 1rem; }
+
+    .section { background:var(--card); padding:1.2rem; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.3); margin-bottom:1.5rem; }
+    h2 { color:var(--accent); cursor:pointer; margin-bottom:0.5rem; }
+    h2:hover { background:var(--accent); color:var(--bg); padding:0.25rem 0.5rem; border-radius:4px; transition:0.2s; }
+
+    ul { list-style:none; padding-left:1rem; display:none; border-radius:6px; padding:1rem; margin-top:1rem; background:var(--dropbg); }
+    ul.show { display:block; }
+    li { margin-bottom:0.5rem; }
+    input[type="checkbox"] { margin-right:0.5rem; }
+
+    table { width:100%; border-collapse:collapse; margin-top:1rem; background:var(--dropbg); }
+    th, td { border:1px solid var(--accent); padding:0.5rem; text-align:left; }
+    th { background:var(--hdr); }
+
+    pre { white-space:pre-wrap; background:rgba(255,255,255,0.05); padding:1rem; border-radius:6px; font-size:0.9rem; margin-top:1rem; }
+
+    .section-divider { border:none; height:5px; background:var(--accent); border-radius:3px; margin:1.5rem 0 0.8rem; }
+
+    footer a { color:var(--accent); }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <a href="index.html">
+      <img src="logo-dark.png" class="logo dark" alt="PLT Logo" />
+      <img src="logo-light.png" class="logo light" alt="PLT Logo" />
+    </a>
+    <h1>LLC Renewals</h1>
+
+    <div class="search-box">
+      <input type="text" id="filterSections" placeholder="🔍 Search..." />
+    </div>
+    <div id="themeToggle">☀️</div>
+
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="onboarding-trust.html">🔙 Trust Onboarding</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="sectionContainer">
+
+    <!-- Section: Renewal Process -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Renewal Process</h2>
+      <ul>
+        <li><input type="checkbox" />Track actions in Monday.com</li>
+        <li><input type="checkbox" />Set due date reminders</li>
+        <li><input type="checkbox" />Renew LLC and store in TaxDome</li>
+        <li><input type="checkbox" />Send invoice and docs to client</li>
+        <li>
+          <strong>Client Email Template:</strong>
+          <pre>
+Dear Client,
+
+We have renewed your company [Company Name] in [State] for [Year]. Fee: [$XXX].
+
+Let us know if you'd like us to auto-debit or arrange another payment method. Invoice attached.
+
+Thank you!
+          </pre>
+        </li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Section: State Compliance -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">State Compliance Reference</h2>
+      <ul>
+        <li>
+          <strong>Compliance Table:</strong>
+          <table>
+            <thead>
+              <tr><th>State(s)</th><th>Frequency</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>DE, TX, SC</td><td>Annual</td><td>Pay state fee only</td></tr>
+              <tr><td>MO, NM, OH</td><td>None</td><td>Confirm no action needed</td></tr>
+              <tr><td>DC, IN</td><td>DC: Annual, IN: Biennial</td><td>File form + pay fee</td></tr>
+              <tr><td>All Others</td><td>Annual</td><td>File form + submit fee</td></tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <strong>Due Dates:</strong>
+          <table>
+            <thead>
+              <tr><th>State</th><th>Due Date</th><th>Note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Delaware</td><td>March 1</td><td>Franchise Tax</td></tr>
+              <tr><td>Texas</td><td>May 15</td><td>Annual & Public Info Report</td></tr>
+              <tr><td>SC</td><td>Varies</td><td>Check SoS</td></tr>
+              <tr><td>DC</td><td>April 1</td><td>Report due to DCRA</td></tr>
+              <tr><td>Indiana</td><td>Biennial</td><td>Due anniversary month</td></tr>
+              <tr><td>CA, AZ, AK</td><td>Varies</td><td>Check state portals</td></tr>
+            </tbody>
+          </table>
+        </li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Section: BOI Compliance -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">BOI Compliance</h2>
+      <ul>
+        <li><input type="checkbox" />If newly formed: file within 90 days</li>
+        <li><input type="checkbox" />Add reminder to Monday.com board</li>
+        <li><input type="checkbox" />Save BOI confirmation to TaxDome</li>
+        <li>
+          <a href="https://drive.google.com/file/d/1ml7scgzRxka4_Mf-U0okmYFvOIoK3LjG/view?usp=drive_link" target="_blank">
+            View BOI Reporting Info Sheet
+          </a>
+        </li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Section: Dissolutions -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Dissolutions</h2>
+      <ul>
+        <li><input type="checkbox" />Add to <a href="https://the-plt-firm.monday.com/boards/6683063790" target="_blank">Dissolutions Board</a></li>
+        <li><input type="checkbox" />Submit signed documents via DocuSign</li>
+        <li><input type="checkbox" />Send final confirmation to client</li>
+        <li>
+          <strong>Email to RASI:</strong>
+          <pre>
+TO: corporateteam1@rasi.com  
+Subject: Dissolution of "Company Name"
+
+Hello!
+
+Would you please assist in the dissolution of "Company Name"? Documents are attached.
+
+Thank you!
+          </pre>
+        </li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+  </main>
+
+  <footer style="text-align:center;margin-top:2rem;">
+    PLT Firm SOP – LLC Renewals • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').onclick = function () {
+      const t = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', t);
+      document.getElementById('themeToggle').textContent = t === 'light' ? '🌙' : '☀️';
+    };
+
+    function toggleList(el) {
+      const ul = el.nextElementSibling;
+      if (ul && ul.tagName.toLowerCase() === 'ul') {
+        ul.classList.toggle('show');
+      }
+    }
+
+    document.getElementById('filterSections').addEventListener('input', function () {
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('.section').forEach(section => {
+        const content = section.innerText.toLowerCase();
+        const list = section.querySelector('ul');
+        const matched = content.includes(term);
+        section.style.display = matched ? 'block' : 'none';
+        if (matched && list) list.classList.add('show');
+        else if (list) list.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>

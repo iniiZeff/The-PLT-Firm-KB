@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- Built to match the Trust Onboarding SOP reference layout/style -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tax Returns – PLT Firm SOP</title>
+  <style>
+    :root { --bg:#000; --fg:gold; --card:#111; --hdr:#222; --accent:#c0a060; --hover:#333; }
+    [data-theme="light"] { --bg:#f3f3f3; --fg:#222; --card:#fff; --hdr:#ddd; --accent:#996e2f; --hover:#ccc; }
+
+    body { background:var(--bg); color:var(--fg); font-family:Arial, sans-serif; margin:0; padding:1rem; line-height:1.6; }
+    header { background:var(--hdr); padding:1rem 1rem 0.5rem; text-align:center; position:relative; }
+    .logo { height:200px; max-width:100%; margin-bottom:1rem; }
+    .logo.light{display:none;} [data-theme="light"] .logo.light{display:inline;} [data-theme="light"] .logo.dark{display:none;}
+
+    #themeToggle{ position:absolute; top:1rem; right:1rem; cursor:pointer; font-size:1.2rem; }
+    .search-box{ position:absolute; top:1rem; right:3.5rem; }
+    .search-box input{ padding:0.4rem 0.8rem; border-radius:20px; border:none; background:var(--card); color:var(--fg); font-size:0.9rem; }
+    .search-box input::placeholder{ font-family:inherit; }
+
+    h1{ color:var(--fg); margin:0.5rem 0; }
+    .nav-container{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:0.8rem; }
+    .nav-links a{ color:var(--accent); margin:0 0.5rem; text-decoration:none; font-size:0.95rem; }
+    .nav-links a:hover{ text-decoration:underline; }
+
+    h2{ color:var(--accent); cursor:pointer; margin-bottom:0.5rem; }
+    .container{ max-width:1000px; margin:auto; padding:0 1rem; }
+    .section{ background:var(--card); padding:1.2rem; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.3); margin-bottom:1.5rem; }
+
+    ul{ list-style:none; padding-left:1rem; display:none; transition:background 0.3s ease; border-radius:6px; padding:1rem; margin-top:1rem; }
+    ul.show{ display:block; background:rgba(255,215,0,0.08); }
+    [data-theme="light"] ul.show{ background:rgba(0,0,0,0.05); }
+    h2:hover{ background:var(--hover); color:var(--fg); padding:0.25rem 0.5rem; border-radius:4px; transition:0.2s; }
+    ul:hover{ background:var(--hover); color:var(--fg); }
+    ul.show:hover{ background:var(--hover); }
+    li{ margin-bottom:0.5rem; }
+    input[type="checkbox"]{ margin-right:0.5rem; }
+    .section-divider{ border:none; height:5px; background:var(--accent); border-radius:3px; margin:1.5rem 0 0.8rem; }
+    footer a{ color:var(--accent); }
+    .muted{ opacity:0.85; font-style:italic; }
+    .sub{ margin-left:1rem; }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .email{
+      background:#0f0f0f; color:var(--fg); border:1px solid #2a2a2a; border-radius:8px; padding:1rem; margin-top:0.5rem;
+      white-space:pre-wrap; line-height:1.5; }
+    [data-theme="light"] .email{ background:#fafafa; border-color:#e5e5e5; color:#111; }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <a href="index.html">
+      <img src="logo-dark.png" class="logo dark" alt="PLT Logo" />
+      <img src="logo-light.png" class="logo light" alt="PLT Logo" />
+    </a>
+    <h1>Tax Returns</h1>
+
+    <div class="search-box">
+      <input type="text" id="filterSections" placeholder="🔍 Search..." />
+    </div>
+    <div id="themeToggle">☀️</div>
+
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="index.html#cardGrid">🔙 Back</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="sectionContainer">
+
+    <!-- Training Link -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Training</h2>
+      <ul>
+        <li><input type="checkbox" /><a href="https://www.loom.com/share/b57e6f15e59f40158cf5725f5acf5667" target="_blank" rel="noopener">Tax Return Loom Video</a></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Email the Client -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Email the Client (get details from Client Info Board)</h2>
+      <ul>
+        <li><input type="checkbox" />Example recipients: <em>Dr. David and Wendy Voyer</em></li>
+        <li><input type="checkbox" />Use the template <strong>Tax Returns for Review</strong>.</li>
+        <li><input type="checkbox" />CC: <em>Kat, Chad, Damon</em></li>
+        <li><input type="checkbox" />Attach the generated PDF + <a href="https://drive.google.com/file/d/1_tsX5MAu4Q7bUmBxjQ1CrsMZn4rGsjj-/view?usp=sharing" target="_blank" rel="noopener">Reviewing your tax return.png</a> and send.</li>
+        <li><input type="checkbox" />Subject: <span class="mono">2024 Tax Returns - For Review</span></li>
+        <li>
+          <div class="email">
+Hey [Client Name]!
+
+Attached is/are your return(s): [insert names for returns]. Also, attached is an overview of things to check on in your return, in case that's helpful. Please look it over and let me know if you see anything that seems unclear or needs to be changed! With your approval I will send over for signatures!
+
+I have included Kat, Chad and Damon on this thread so if you have any questions please hit "reply all" or let us know and we can give you a call!
+          </div>
+        </li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- If Client Owes Tax -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">If Client Owes Tax</h2>
+      <ul>
+        <li><input type="checkbox" /><a href="https://docs.google.com/document/d/1m3aSxeoPtKgQtHv-QZJSBhRGW4UPJykg8r_VtnjV7Yo/edit?tab=t.q5kpe9ae00wm" target="_blank" rel="noopener">‼️Action Needed on Your [YEAR] Tax Return</a></li>
+        <li><input type="checkbox" />Include clear payment instructions for both federal and state amounts owed.</li>
+      </ul>
+    </div>
+
+    <!-- (Other sections remain unchanged with checklists) -->
+
+  </main>
+
+  <footer style="text-align:center;margin-top:2rem;">
+    PLT Firm SOP – Tax Returns • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').onclick = function(){
+      const t = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', t);
+      document.getElementById('themeToggle').textContent = t === 'light' ? '🌙' : '☀️';
+    };
+    function toggleList(el){ const ul = el.nextElementSibling; if(ul && ul.tagName.toLowerCase()==='ul'){ ul.classList.toggle('show'); } }
+    document.getElementById('filterSections').addEventListener('input', function(){
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('.section').forEach(section =>{
+        const content = section.innerText.toLowerCase();
+        const list = section.querySelector('ul');
+        const matched = content.includes(term);
+        section.style.display = matched ? 'block' : 'none';
+        if(matched && list) list.classList.add('show'); else if(list) list.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>

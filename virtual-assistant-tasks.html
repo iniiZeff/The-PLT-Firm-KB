@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- Built to match the Trust Onboarding SOP reference layout/style -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Assistant Tasks – PLT Firm SOP</title>
+  <style>
+    :root { --bg:#000; --fg:gold; --card:#111; --hdr:#222; --accent:#c0a060; }
+    [data-theme="light"] { --bg:#f3f3f3; --fg:#222; --card:#fff; --hdr:#ddd; --accent:#996e2f; }
+
+    body { background:var(--bg); color:var(--fg); font-family:Arial, sans-serif; margin:0; padding:1rem; line-height:1.6; }
+    header { background:var(--hdr); padding:1rem 1rem 0.5rem; text-align:center; position:relative; }
+    .logo { height:200px; max-width:100%; margin-bottom:1rem; }
+    .logo.light{display:none;} [data-theme="light"] .logo.light{display:inline;} [data-theme="light"] .logo.dark{display:none;}
+
+    #themeToggle{ position:absolute; top:1rem; right:1rem; cursor:pointer; font-size:1.2rem; }
+    .search-box{ position:absolute; top:1rem; right:3.5rem; }
+    .search-box input{ padding:0.4rem 0.8rem; border-radius:20px; border:none; background:var(--card); color:var(--fg); font-size:0.9rem; }
+    .search-box input::placeholder{ font-family:inherit; }
+
+    h1{ color:var(--fg); margin:0.5rem 0; }
+    .nav-container{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:0.8rem; }
+    .nav-links a{ color:var(--accent); margin:0 0.5rem; text-decoration:none; font-size:0.95rem; }
+    .nav-links a:hover{ text-decoration:underline; }
+
+    h2{ color:var(--accent); cursor:pointer; margin-bottom:0.5rem; }
+    .container{ max-width:1000px; margin:auto; padding:0 1rem; }
+    .section{ background:var(--card); padding:1.2rem; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.3); margin-bottom:1.5rem; }
+
+    ul{ list-style:none; padding-left:1rem; display:none; transition:background 0.3s ease; border-radius:6px; padding:1rem; margin-top:1rem; }
+    ul.show{ display:block; background:rgba(255,215,0,0.08); }
+    [data-theme="light"] ul.show{ background:rgba(0,0,0,0.05); }
+    h2:hover{ background:var(--accent); color:var(--bg); padding:0.25rem 0.5rem; border-radius:4px; transition:0.2s; }
+    ul:hover{ background:var(--accent); color:var(--bg); }
+    ul.show:hover{ background:var(--accent); }
+    li{ margin-bottom:0.5rem; }
+    input[type="checkbox"]{ margin-right:0.5rem; }
+    .section-divider{ border:none; height:5px; background:var(--accent); border-radius:3px; margin:1.5rem 0 0.8rem; }
+    footer a{ color:var(--accent); }
+    .muted{ opacity:0.85; font-style:italic; }
+    .sub{ margin-left:1rem; }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <a href="index.html">
+      <img src="logo-dark.png" class="logo dark" alt="PLT Logo" />
+      <img src="logo-light.png" class="logo light" alt="PLT Logo" />
+    </a>
+    <h1>Virtual Assistant Tasks</h1>
+
+    <div class="search-box">
+      <input type="text" id="filterSections" placeholder="🔍 Search..." />
+    </div>
+    <div id="themeToggle">☀️</div>
+
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="index.html#cardGrid">🔙 Back</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="sectionContainer">
+
+    <!-- Client Information Organization Setup -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Client Information Organization Setup</h2>
+      <ul>
+        <li><input type="checkbox" />Create a <strong>NEW client information board</strong></li>
+        <li><input type="checkbox" />Training link: <a href="https://www.loom.com/share/7036adbdb43c45e6b0f8b5fff8398e98?sid=43af40bb-f0e9-422e-9754-ba5e2c7cc797" target="_blank">Creating a New Client</a></li>
+        <li><input type="checkbox" />Create Client <strong>“Items Needed” Checklist</strong></li>
+        <li class="sub"><input type="checkbox" />Template:<a href="https://docs.google.com/document/d/1ampVnCx6T28ZObGZVjE2JdfoRrc-QSbrs9zlemkSRW0/edit?usp=sharing" <em>Base "Items Needed" Checklist</em>></a></li>
+        <li class="sub"><input type="checkbox" />Training link: <a https://www.loom.com/share/3aa9e06737ab47d7bf2cf4de4f2909e5?sid=2a5dda7c-1450-4e07-bf75-aea084345018">How To Set Up Video</a></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Document Organization (Congruence) -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Document Organization – Keep Info Congruent</h2>
+      <ul>
+        <li class="muted">Ensure names, addresses, EINs, officers match across systems.</li>
+        <li><strong>Monday</strong></li>
+        <li class="sub"><input type="checkbox" />VA Client Information Board</li>
+        <li class="sub"><input type="checkbox" />Tax Return Client Information Board</li>
+        <li><strong>TaxDome</strong></li>
+        <li class="sub"><input type="checkbox" />Client contact profiles</li>
+        <li class="sub"><input type="checkbox" />Documents</li>
+        <li><strong>QuickBooks</strong></li>
+        <li class="sub"><input type="checkbox" />Legal names</li>
+        <li class="sub"><input type="checkbox" />Company address (is it current?)</li>
+        <li class="sub"><input type="checkbox" />EIN</li>
+        <li class="sub"><input type="checkbox" />Officer Information</li>
+        <li><strong>ProConnect</strong></li>
+        <li class="sub"><input type="checkbox" />Legal names</li>
+        <li class="sub"><input type="checkbox" />Company address (is it current?)</li>
+        <li class="sub"><input type="checkbox" />EIN</li>
+        <li class="sub"><input type="checkbox" />Officer Information</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- TaxDome Organization – Folders -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">TaxDome Organization – Folders & Contents</h2>
+      <ul>
+        <li><strong>8821</strong></li>
+        <li class="sub"><input type="checkbox" />8821 Documents for Personal, Business, and Trust</li>
+        <li><strong>Augusta Rule</strong></li>
+        <li class="sub"><input type="checkbox" />Augusta Rule Comparisons</li>
+        <li><strong>Business</strong></li>
+        <li class="sub"><input type="checkbox" />Subfolders: Legal Documents, Bank Statements, Profit and Loss, IRS Communications</li>
+        <li><strong>Loan Paperwork and Purchase Agreement</strong></li>
+        <li class="sub"><input type="checkbox" />Loans and Purchase Paperwork</li>
+        <li><strong>CLIENT UPLOAD HERE – PLT TO FILE</strong> <span class="muted">(only folder the client can access)</span></li>
+        <li><strong>Personal Documents</strong></li>
+        <li class="sub"><input type="checkbox" />Driver’s Licenses</li>
+        <li class="sub"><input type="checkbox" />PLT Service Agreement</li>
+        <li><strong>Tax Documents</strong></li>
+        <li class="sub"><input type="checkbox" />Subfolders: Year</li>
+        <li><strong>Tax Returns</strong></li>
+        <li class="sub"><input type="checkbox" />Subfolders: Year</li>
+        <li><strong>Trust Documents</strong></li>
+        <li class="sub"><input type="checkbox" />Subfolders: <em>BUSINESS TRUST</em> → Legal Documents</li>
+        <li class="sub"><input type="checkbox" />Subfolders: <em>SUPERIOR TRUST</em> → Legal Documents, Quit Claim Deed, Vehicle Registration</li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling Documents – CGPT Prompt -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling Documents – Master Prompt</h2>
+      <ul>
+        <li><input type="checkbox" />Rule of thumb: <strong>[LAST NAME] - [DATE OR YEAR WHEN APPLICABLE] - [NAME OF BUSINESS OR TRUST] - [NAME OF DOCUMENT]</strong></li>
+        <li><input type="checkbox" />CGPT PROMPT (copy/paste when labeling):
+          <div class="sub">
+            <em>You are an Expert Accounting Specialist. You are very keen on details and you read through each instruction and follow it. Task1: You will be renaming or relabeling files that will be uploaded. A reference will be given. Task2: Make sure to create a zip file that I can download for each upload once you are done with the first task. Here is the complete reference. Read through the reference each time you do the labeling task, making sure of the accuracy by following the examples. Make sure to show as well the relabeled documents.</em>
+          </div>
+        </li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling – Augusta Rule -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling – Augusta Rule</h2>
+      <ul>
+        <li><input type="checkbox" />(YEAR) Augusta Rule Comparisons</li>
+        <li class="sub muted">Example: <em>2023 Augusta Rule Comparisons</em></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling – Business -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling – Business</h2>
+      <ul>
+        <li><strong>Legal Documents</strong></li>
+        <li class="sub"><input type="checkbox" />Business Name - Document Type</li>
+        <li class="sub"><input type="checkbox" />Articles of Organization → <em>Artco Management Group LLC - Articles of Organization (Filed 01-02-2023)</em></li>
+        <li class="sub"><input type="checkbox" />EIN Letter → <em>Artco Management Group LLC - IRS EIN Confirmation Letter (Filed 01-02-2023)</em></li>
+        <li><strong>Bank Statements</strong></li>
+        <li class="sub"><input type="checkbox" />Business Name - MON YYYY - Bank Name - <span class="muted">last 4</span> Bank Statement</li>
+        <li class="sub muted">Example: <em>Artco Management Group - JAN 2023 - Bank of America - 8961 Bank Statement</em></li>
+        <li><strong>Profit and Loss</strong></li>
+        <li class="sub"><input type="checkbox" />YEAR - Business Name - Profit and Loss</li>
+        <li class="sub muted">Example: <em>2024 - Artco Management Group - Profit and Loss</em></li>
+        <li><strong>IRS Communications</strong></li>
+        <li class="sub"><input type="checkbox" />YEAR - Business Name - Document Type</li>
+        <li class="sub muted">Example: <em>2024 - Artco Management Group - IRS Communications</em></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling – Loan Paperwork & Purchase Agreement -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling – Loan Paperwork & Purchase Agreement</h2>
+      <ul>
+        <li><input type="checkbox" />Purchased Items: <em>[BUSINESS NAME] - item Purchase Agreement (purchased MM-DD-YYYY)</em></li>
+        <li class="sub muted">Example: <em>ABC Corp - laser machine Purchase Agreement (purchased 10-15-2024)</em></li>
+        <li><input type="checkbox" />Loan Agreement: <em>[BUSINESS NAME] - item Loan Paperwork (purchased MM-DD-YYYY)</em></li>
+        <li class="sub muted">Example: <em>ABC Corp - laser machine Loan Paperwork (purchased 10-15-2024)</em></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling – Personal Documents -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling – Personal Documents</h2>
+      <ul>
+        <li><input type="checkbox" />Driver’s Licenses → <em>Last - First Drivers License (expires: MM/DD/YY)</em></li>
+        <li class="sub muted">Example: <em>Smith - John Drivers License (expires: 01/23/26)</em></li>
+        <li><input type="checkbox" />PLT Service Agreement → <em>Last - YEAR PLT Firm Service Agreement</em></li>
+        <li class="sub muted">Example: <em>Douglass - 2024 PLT Firm Service Agreement</em></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling – Tax Documents -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling – Tax Documents</h2>
+      <ul>
+        <li><input type="checkbox" />[DATE/YEAR] - [BUSINESS/TRUST (if any)] - [DOCUMENT NAME]</li>
+        <li class="sub muted">Example: <em>2023 - REVIV LMS - Sales and Use Tax Submission Summary.png</em></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling – Tax Returns -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling – Tax Returns</h2>
+      <ul>
+        <li><strong>Business Tax Return</strong> → <em>[YEAR] [LEGAL BUSINESS NAME] ([Type]) Tax Return</em></li>
+        <li class="sub muted">Example: <em>2023 Artco Management Group LLC (1120S) Tax Return</em></li>
+        <li><strong>Personal Tax Return</strong> → <em>[YEAR] [LAST NAME] (1040) Personal Tax Return</em></li>
+        <li class="sub muted">Example: <em>2023 Smith (1040) Personal Tax Return</em></li>
+        <li><strong>Hand-Signed Pages</strong> → <em>[YEAR] [BUSINESS/TRUST NAME or LAST NAME] Tax Return - Hand Signatures</em></li>
+      </ul>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- Labeling – Trust Documents -->
+    <div class="section">
+      <h2 onclick="toggleList(this)">Labeling – Trust Documents</h2>
+      <ul>
+        <li><strong>BUSINESS TRUST → Legal Documents</strong></li>
+        <li class="sub"><input type="checkbox" />Trust Name - Document Type</li>
+        <li class="sub"><input type="checkbox" />PDF of Trust → <em>ABC (Superior) Trust - FULL PDF</em></li>
+        <li class="sub"><input type="checkbox" />Certification of Trust → <em>ABC (Business) Trust - Certification of Trust</em></li>
+        <li class="sub"><input type="checkbox" />Trust EIN Letter → <em>ABC (Superior) Trust - IRS EIN Confirmation</em></li>
+        <li><strong>SUPERIOR TRUST → Legal Documents</strong></li>
+        <li class="sub"><input type="checkbox" />PDF of Trust → <em>ABC (Superior) Trust - FULL PDF</em></li>
+        <li class="sub"><input type="checkbox" />Certification of Trust → <em>ABC (Business) Trust - Certification of Trust</em></li>
+        <li class="sub"><input type="checkbox" />Trust EIN Letter → <em>ABC (Superior) Trust - IRS EIN Confirmation</em></li>
+        <li><strong>SUPERIOR TRUST → Quit Claim Deed</strong></li>
+        <li class="sub"><input type="checkbox" />Last Name - Property - Quit Claim Deed</li>
+        <li class="sub muted">Example: <em>Smith - 1234 Property St - Quit Claim Deed</em></li>
+        <li class="sub"><input type="checkbox" />Property Info for Quit Claim Deed</li>
+        <li class="sub muted">Example: <em>Smith - 1234 Property St - Property Tax Information</em></li>
+        <li><strong>SUPERIOR TRUST → Vehicle Registration</strong></li>
+        <li class="sub"><input type="checkbox" />Name - Asset - Document Type</li>
+        <li class="sub"><input type="checkbox" />Vehicle Registration Form → <em>Smith - Porsche Cayenne - Vehicle Registration Form</em></li>
+        <li class="sub"><input type="checkbox" />Bill of Sale → <em>ABC Superior Trust - BOSDN</em></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer style="text-align:center;margin-top:2rem;">
+    PLT Firm SOP – Virtual Assistant Tasks • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').onclick = function(){
+      const t = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', t);
+      document.getElementById('themeToggle').textContent = t === 'light' ? '🌙' : '☀️';
+    };
+    function toggleList(el){ const ul = el.nextElementSibling; if(ul && ul.tagName.toLowerCase()==='ul'){ ul.classList.toggle('show'); } }
+    document.getElementById('filterSections').addEventListener('input', function(){
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('.section').forEach(section =>{
+        const content = section.innerText.toLowerCase();
+        const list = section.querySelector('ul');
+        const matched = content.includes(term);
+        section.style.display = matched ? 'block' : 'none';
+        if(matched && list) list.classList.add('show'); else if(list) list.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
