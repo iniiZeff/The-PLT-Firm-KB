@@ -1,164 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PLT Firm SOP Knowledge Base</title>
-  <style>
-    :root {
-      --bg: #000; --fg: gold; --card: #111; --hdr: #222; --accent: #c0a060;
-    }
-    [data-theme="light"] {
-      --bg: #f3f3f3; --fg: #222; --card: #fff; --hdr: #ddd; --accent: #996e2f;
-    }
-    body {
-      background: var(--bg); color: var(--fg);
-      font-family: Arial, sans-serif; margin: 0; padding: 0;
-    }
-    header {
-      background: var(--hdr); padding: 2rem 1rem;
-      text-align: center; position: relative;
-    }
-    .logo {
-      height: 200px;
-      max-width: 100%;
-      margin-bottom: 1rem;
-    }
-    .logo.light { display: none; }
-    [data-theme="light"] .logo.light { display: inline; }
-    [data-theme="light"] .logo.dark { display: none; }
-    #themeToggle {
-      position: absolute; top: 1rem; right: 1rem;
-      font-size: 1.4rem; cursor: pointer;
-    }
-    #search {
-      width: 80%; max-width: 600px;
-      margin: 1rem auto; padding: .75rem; font-size: 1rem;
-      border: none; border-radius: 25px;
-      background: var(--bg); color: var(--fg);
-      display: block;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 0 1rem;
-    }
-
-    .intro-split {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.2rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 1.2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      background: var(--accent);
-    }
-
-    main {
-      display: grid;
-      gap: 1.2rem;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      margin: 2rem 0;
-    }
-
-    footer {
-      text-align: center; padding: 2rem;
-      background: var(--hdr); font-size: 0.9rem;
-    }
-
-    a { color: var(--accent); text-decoration: underline; }
-  </style>
-</head>
-<body>
   <script>
     (function() {
-      // Base64 encoded: "PLTFirm"
-      const _pw = atob("UExURmlybQ==");
+      const parts = ["UExU", "Rmly", "bQ=="]; // split Base64
+      const password = atob(parts.join(""));
       const input = prompt("Enter password:");
-      if (input !== _pw) {
-        document.write('<h1 style="text-align:center; margin-top: 20%;">Access Denied</h1>');
-        return;
+
+      if (!input || input !== password) {
+        document.write("<h1 style='text-align:center; margin-top: 20%;'>Access Denied</h1>");
+        throw new Error("Access denied"); // Stops everything
       }
+
+      // Correct password — write the full content
+      document.write(`
+        <style>
+          :root { --bg:#000; --fg:gold; --card:#111; --hdr:#222; --accent:#c0a060; }
+          [data-theme="light"] { --bg:#f3f3f3; --fg:#222; --card:#fff; --hdr:#ddd; --accent:#996e2f; }
+          body { background:var(--bg); color:var(--fg); font-family:Arial,sans-serif; margin:0; padding:0; }
+          header{background:var(--hdr);padding:2rem 1rem;text-align:center;position:relative;}
+          .logo{height:200px;max-width:100%;margin-bottom:1rem;}
+          .logo.light{display:none;}
+          [data-theme="light"] .logo.light{display:inline;}
+          [data-theme="light"] .logo.dark{display:none;}
+          #themeToggle{position:absolute;top:1rem;right:1rem;font-size:1.4rem;cursor:pointer;}
+          #search{width:80%;max-width:600px;margin:1rem auto;padding:.75rem;font-size:1rem;border:none;border-radius:25px;background:var(--bg);color:var(--fg);display:block;}
+          .container{max-width:1000px;margin:auto;padding:0 1rem;}
+          .intro-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;margin-top:2rem;}
+          .card{background:var(--card);padding:1.2rem;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.3);transition:0.2s;}
+          .card:hover{background:var(--accent);}
+          main{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:2rem 0;}
+          footer{text-align:center;padding:2rem;background:var(--hdr);font-size:0.9rem;}
+          a{color:var(--accent);text-decoration:underline;}
+        </style>
+        <body data-theme="dark">
+          <header>
+            <img src="logo-dark.png" class="logo dark" alt="PLT Logo"/>
+            <img src="logo-light.png" class="logo light" alt="PLT Logo"/>
+            <h1>PLT Firm SOP Wiki</h1>
+            <div id="themeToggle">☀️</div>
+            <input type="text" id="search" placeholder="Search SOPs..."/>
+          </header>
+          <div class="container">
+            <div class="intro-split">
+              <div class="card"><h3>Purpose</h3><p>This knowledge base provides SOPs for standardized task execution.</p></div>
+              <div class="card"><h3>Scope</h3><p>Applies across all departments/operations.</p></div>
+            </div>
+            <main id="cardGrid"></main>
+          </div>
+          <footer>PLT Firm • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a></footer>
+          <script>
+            const pages = [
+              { title:"Sales Tax", link:"sales-tax.html", desc:"Steps for monthly sales tax filing." },
+              { title:"LLC Management", link:"llc-management.html", desc:"LLC creation and renewals." },
+              { title:"Purpose", link:"purpose.html", desc:"SOP purpose overview." },
+              { title:"Onboarding (Trust)", link:"onboarding-trust.html", desc:"Trust onboarding." },
+              { title:"Client Onboarding", link:"client-onboarding.html", desc:"Client onboarding steps." },
+              { title:"Virtual Assistant Tasks", link:"virtual-assistant-tasks.html", desc:"VA document SOP." },
+              { title:"Tax Returns", link:"tax-returns.html", desc:"Filing tax returns procedure." },
+              { title:"Client Diagrams", link:"client-diagrams.html", desc:"Entity structure diagrams." },
+              { title:"Bookkeeping Setup", link:"bookkeeping-setup.html", desc:"QuickBooks setup." },
+              { title:"Standalone Tasks", link:"standalone-tasks.html", desc:"8821 handling SOP." },
+              { title:"Client Follow‑Ups", link:"client-follow-ups.html", desc:"Follow-ups for missing docs." }
+            ];
+            const grid = document.getElementById("cardGrid");
+            pages.forEach(p => {
+              const c = document.createElement("div");
+              c.className = "card";
+              c.innerHTML = \`<h3>\${p.title}</h3><p>\${p.desc}</p>\`;
+              c.onclick = () => location.href = p.link;
+              grid.appendChild(c);
+            });
+            document.getElementById("themeToggle").onclick = () => {
+              const t = document.body.getAttribute("data-theme") === "light" ? "dark" : "light";
+              document.body.setAttribute("data-theme", t);
+              document.getElementById("themeToggle").textContent = t === "light" ? "🌙" : "☀️";
+            };
+            document.getElementById("search").addEventListener("input", e => {
+              const term = e.target.value.toLowerCase();
+              document.querySelectorAll(".card").forEach((card, i) => {
+                const match = pages[i].title.toLowerCase().includes(term) || pages[i].desc.toLowerCase().includes(term);
+                card.style.display = match ? "block" : "none";
+              });
+            });
+          <\/script>
+        </body>
+      `);
     })();
   </script>
-
-  <header>
-    <img src="logo-dark.png" class="logo dark" alt="PLT Logo" />
-    <img src="logo-light.png" class="logo light" alt="PLT Logo" />
-    <h1>PLT Firm SOP Wiki</h1>
-    <div id="themeToggle">☀️</div>
-    <input type="text" id="search" placeholder="Search SOPs...">
-  </header>
-
-  <div class="container">
-    <div class="intro-split">
-      <div class="card">
-        <h3>Purpose</h3>
-        <p>This knowledge base provides Standard Operating Procedures (SOPs) to support consistent, efficient, and safe execution of tasks across the organization. SOPs serve as step-by-step guides that help team members complete work accurately and confidently.</p>
-        <p>By centralizing SOPs here, we make it easier to:</p>
-        <ul>
-          <li>Maintain consistency in how tasks are performed</li>
-          <li>Reduce errors and improve quality</li>
-          <li>Onboard new team members faster</li>
-          <li>Ensure alignment with internal standards and regulatory requirements</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Scope</h3>
-        <p>This SOP framework applies across all departments, teams, and operational areas. It outlines the standardized format and essential components for creating, updating, and following SOPs within the organization.</p>
-        <p>Whether you're looking to understand a routine task or document a new workflow, this section of the knowledge base is your resource for building reliable, easy-to-follow procedures.</p>
-      </div>
-    </div>
-
-    <main id="cardGrid"></main>
-  </div>
-
-  <footer>
-    PLT Firm • Contact: <a href="mailto:team@pltfirm.com">team@pltfirm.com</a>
-  </footer>
-
-  <script>
-    const pages = [
-      { title:"Sales Tax", link:"sales-tax.html", desc:"Steps for monthly sales tax filing, confirmations." },
-      { title:"LLC Management", link:"llc-management.html", desc:"LLC creation, renewals, BOI, dissolution." },
-      { title:"Onboarding (Trust)", link:"onboarding-trust.html", desc:"Trust client onboarding process." },
-      { title:"Client Onboarding", link:"client-onboarding.html", desc:"Personal/business client onboarding steps." },
-      { title:"Virtual Assistant Tasks", link:"virtual-assistant-tasks.html", desc:"VA setup and document organization SOP." },
-      { title:"Tax Returns", link:"tax-returns.html", desc:"Process from ProConnect to client review and filing." },
-      { title:"Client Diagrams", link:"client-diagrams.html", desc:"Visual entity structure and income flow diagrams." },
-      { title:"Bookkeeping Setup", link:"bookkeeping-setup.html", desc:"QuickBooks setup and P&L review procedures." },
-      { title:"Standalone Tasks (8821s)", link:"standalone-tasks.html", desc:"8821 form handling and client directions." },
-      { title:"Client Follow‑Ups", link:"client-follow-ups.html", desc:"Checklist follow-ups for missing documents." },
-    ];
-    const grid = document.getElementById('cardGrid');
-    pages.forEach(p => {
-      const c = document.createElement('div');
-      c.className = 'card';
-      c.innerHTML = `<h3>${p.title}</h3><p>${p.desc}</p>`;
-      c.onclick = () => location.href = p.link;
-      grid.appendChild(c);
-    });
-    document.getElementById('themeToggle').onclick = () => {
-      const t = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      document.body.setAttribute('data-theme', t);
-      document.getElementById('themeToggle').textContent = t === 'light' ? '🌙' : '☀️';
-    };
-    document.getElementById('search').addEventListener('input', e => {
-      const term = e.target.value.toLowerCase();
-      document.querySelectorAll('.card').forEach((card, i) => {
-        const match = pages[i].title.toLowerCase().includes(term) || pages[i].desc.toLowerCase().includes(term);
-        card.style.display = match ? 'block' : 'none';
-      });
-    });
-  </script>
-</body>
+</head>
 </html>
